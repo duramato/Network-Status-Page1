@@ -1,6 +1,4 @@
 <?php
-	include_once("functions.php");
-
 class serviceSAB
 {
 	public $name;
@@ -33,11 +31,8 @@ class serviceSAB
 	
 	function makeButton()
 	{
-		global $sab_ip;
-		global $sab_port;
 		global $sabnzbd_api;
-
-		$sabnzbdXML = simplexml_load_file('http://'.$sab_ip.':'.$sab_port.'/api?mode=qstatus&output=xml&apikey='.$sabnzbd_api);
+		$sabnzbdXML = simplexml_load_file('http://192.168.1.3:8080/api?mode=qstatus&output=xml&apikey='.$sabnzbd_api);
 
 		if (($sabnzbdXML->state) == 'Downloading'):
 			$icon = '<i class="icon-' . ($this->status ? 'download-alt' : 'remove') . ' icon-white"></i>';

@@ -1,69 +1,14 @@
-Network Status Page - 0.1.1
-===================
+This is copied from Ryan Christensen's original project for his OSX server: https://bitbucket.org/ryanchristensen/d4rk.co
 
-Designed to monitor a local server and network with forecast.io, Plex, and pfSense integration.
+I have made a  number of changes:
+- Modification of functions to support Linux shell commands
+- Removed minecraft functionality
+- Removed functionality specific to Ryan's setup (Hard disk names etc) and added my own
+- Removed services I don't have on my server and added one (Subsonic)
+- Modified the plex token function to pull this automatically from myplex (this does slow down page loading a fair bit)
+- Moved user credentials to a config.ini you can place outside of your web root. Just make sure it is correctly included in the relevant functions that require it
+- Amended IP Addresses to reflect my LAN
 
-[Live site][ls]
-
-[Plex forum thread][pft]
-
-[ls]: http://d4rk.co/
-[pft]: http://forums.plexapp.com/index.php/topic/84856-network-status-page/
-
-
-###Features
----------------
-* Responsive web design viewable on desktop, tablet and mobile web browsers 
-
-* Designed using [Bootstrap 3][bs]
-
-* Uses jQuery to provide near real time feedback
-
-* Optimized for OS X Mavericks `Tested on OS X 10.9 and Safari 7.0 and iOS 7.0.3 on iPhone/iPad.`
-
-* Displays the following:
-	* currently playing items from Plex Media Server
-	* current network bandwidth from pfSense
-	* current ping to Google DNS
-	* online / offline status for custom services
-	* minute by minute weather forecast from forecast.io
-	* server load
-	* total disk space for all hard drives
-
-* Weather forecast only shows while viewing from local network `configurable`
-
-* Now Playing section adjusts scrollable height on the fly depending on browser window height
+You will need php 5.5.4 and I'm running it on Apache
 
 
-[bs]: http://getbootstrap.com
-
-
-###Screenshots
----------------
-![alt tag](https://dl.dropboxusercontent.com/u/493625/Do%20Not%20Delete/d4rk.co.png)
-
-![alt tag](https://dl.dropboxusercontent.com/u/493625/Do%20Not%20Delete/d4rk.co%20-%20now%20playing.png)
-
-
-###Requirements
----------------
-* [Plex Media Server][pms] (v0.9.8+) and a [myPlex][pp] account `These are both free.`
-* The weather sidebar requires a [forecast.io API key][fcAPI] `Free up to 1000 calls/day.`
-* Web server that supports php (apache, nginx, XAMPP, WampServer, EasyPHP, lighttpd, etc)
-* PHP 5.4
-
-**Note:** While this project is written with OS X in mind, it can very easily be adapted to run on linux or windows by rewriting the functions that don't work on those platforms.
-
-[pms]: http://www.plexapp.com/desktop/
-[pp]: https://my.plexapp.com
-[fcAPI]: https://developer.forecast.io
-
-
-###Optional
----------------
-* A few functions are written to be used with the following software but they are optional:
-	* [SABnzbd+][sab]
-	* [pfSense][pfs]
-
-[sab]: http://sabnzbd.org
-[pfs]: http://www.pfsense.org
