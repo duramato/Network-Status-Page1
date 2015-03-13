@@ -1,6 +1,6 @@
 <?php
 
-	$config_path = "/var/www/netstatus/config.ini"; //path to config file, recommend you place it outside of web root
+	$config_path = "/var/www/html/config.ini"; //path to config file, recommend you place it outside of web root
 	
 	Ini_Set( 'display_errors', true);
 	include("lib/phpseclib0.3.5/Net/SSH2.php");
@@ -24,14 +24,14 @@
 	$filesystems = $config['filesystems'];
 
 	// Set the path for the Plex Token
-$plexTokenCache = '/var/www/netstatus/assets/misc/plex_token.txt';
+$plexTokenCache = '/var/www/html/assets/misc/plex_token.txt';
 // Check to see if the plex token exists and is younger than one week
 // if not grab it and write it to our caches folder
 if (file_exists($plexTokenCache) && (filemtime($plexTokenCache) > (time() - 60 * 60 * 24 * 7))) {
-	$plexToken = file_get_contents("/var/www/netstatus/assets/misc/plex_token.txt");
+	$plexToken = file_get_contents("/var/www/html/assets/misc/plex_token.txt");
 } else {
 	file_put_contents($plexTokenCache, getPlexToken());
-	$plexToken = file_get_contents("/var/www/netstatus/assets/misc/plex_token.txt");
+	$plexToken = file_get_contents("/var/www/html/assets/misc/plex_token.txt");
 }
 	
 
